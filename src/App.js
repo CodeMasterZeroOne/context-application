@@ -4,6 +4,7 @@ import ToDoList from './components/ToDoList';
 import ThemeContextProvider from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import AuthContextProvider from './contexts/AuthContext';
+import ToDoContextProvider from './contexts/ToDoContext';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <ToDoList />
+          <ToDoContextProvider>
+            <ToDoList />
+          </ToDoContextProvider>
           <ThemeToggle />
         </AuthContextProvider>
       </ThemeContextProvider>

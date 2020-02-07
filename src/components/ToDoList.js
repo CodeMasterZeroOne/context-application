@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
+import { ToDoContext } from '../contexts/ToDoContext';
 
 ////use of component example(import Component to use it)
 // class ToDoList extends Component {
@@ -25,14 +26,17 @@ import { ThemeContext } from '../contexts/ThemeContext';
 //use of context example
 const ToDoList = () => {
     const { isLightTheme, light, dark} = useContext(ThemeContext);
+    const { todos } = useContext(ToDoContext);
     const theme = isLightTheme ? light : dark;
 
     return (
         <div className="todo-list" style={{ background: theme.bg, color: theme.syntax }}>
             <ul>
-                <li style={{ background: theme.ui }}>Code all nighgt</li>
-                <li style={{ background: theme.ui }}>Sleep all day</li>
-                <li style={{ background: theme.ui }}>Repeat all again...</li>
+                {todos.map(item => {
+                    return (
+                        <li key={item.id} style={{ background: theme.ui }}>{item.title}</li>                    
+                    )
+                })}
             </ul>
         </div>
     );
