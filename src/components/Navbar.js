@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../contexts/ThemeContext';
-import { AuthContext } from '../contexts/AuthContext';
+//import { AuthContext } from '../contexts/AuthContext';
+import { ToDoContext } from '../contexts/ToDoContext';
 // //using component example
 // class Navbar extends Component {
 //     render() {
@@ -33,20 +34,22 @@ import { AuthContext } from '../contexts/AuthContext';
 
 // //using context example
 const Navbar = () => {
-    const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+    //const { isAuthenticated, toggleAuth } = useContext(AuthContext);
     const { isLightTheme, light, dark } = useContext(ThemeContext);
+    const { todos } = useContext(ToDoContext);
     const theme = isLightTheme ? light : dark;
     return (
         <nav style={{ background: theme.ui, color: theme.syntax }}>
         <h1>To Do List</h1>
-            <div onClick={toggleAuth}>
+        <p>Currently you have {todos.length} tasks.</p>
+            {/* <div onClick={toggleAuth}>
                 { isAuthenticated ? 'Logged in' : 'Logged out' }
-            </div>
-        <ul>
+            </div> 
+         <ul>
             <li>At Home</li>
             <li>At Work</li>
             <li>At School</li>
-        </ul>
+        </ul> */}
     </nav>
     );
 }

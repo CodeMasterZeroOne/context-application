@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: silver;
 }
 
 /* app styles */
@@ -15,6 +16,7 @@ body {
 }
 nav{
   padding: 5px;
+  border-radius: 20px;
 }
 nav ul {
   padding: 0;
@@ -26,14 +28,41 @@ nav ul li {
 .todo-list {
   padding: 20px;
   margin-bottom: 20px;
+  border-radius: 20px;
 }
 .todo-list ul{
   padding: 0;
   list-style-type: none;
 }
 .todo-list li {
+  font-size: larger;
+  font-weight: bold;
   padding: 10px;
   list-style-type: none;
   margin: 10px auto;
   border-radius: 10px;
+}
+.itemContent {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+.todo-list li:hover {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+form{
+  padding: 20px;
+  border-radius: 20px;
+}
+input[type='text']{
+  font-size: medium;
+  width: 100% ;
+  margin: 10px 0px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+input[type='submit']{
+  margin: 10px auto;
+  padding: 10px;
+  background-color: darkseagreen;
 }
