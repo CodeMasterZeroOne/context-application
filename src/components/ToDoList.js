@@ -26,7 +26,7 @@ import { ToDoContext } from '../contexts/ToDoContext';
 //use of context example
 const ToDoList = () => {
     const { isLightTheme, light, dark} = useContext(ThemeContext);
-    const { todos , removeToDo } = useContext(ToDoContext);
+    const { todos , dispatch } = useContext(ToDoContext);
     const theme = isLightTheme ? light : dark;
 
     return todos.length ? (
@@ -34,7 +34,7 @@ const ToDoList = () => {
             <ul>
                 {todos.map(item => {
                     return (
-                        <li onClick={() => removeToDo(item.id)} key={item.id} style={{ background: theme.ui }}>{item.title}
+                        <li onClick={() => dispatch({type: 'REMOVE_TODO', id: item.id})} key={item.id} style={{ background: theme.ui }}>{item.title}
                             <p className="itemContent">{item.content}</p>
                         </li>
                     )
